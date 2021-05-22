@@ -1,0 +1,10 @@
+<div>
+    <div style="text-align: center;">
+        <h1>Quiz Ended</h1>
+        <h1>Your Score is {{ totalCorrect }} out of {{ total }}</h1>
+
+        <h2>You got {{ (totalCorrect/total)*100 | number : '1.2-2' }}%</h2>
+        <button mat-raised-button color="primary" (click)="anotherQuiz()">Start another quiz</button>
+    </div>
+
+</div>

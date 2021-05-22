@@ -1,0 +1,26 @@
+<div class="mainDiv">
+    <div style="text-align: center;">
+        <h1>
+            Welcome!
+        </h1>
+        <h3>Select category and difficulty</h3>
+    </div>
+    <div class="content" style="margin: 8px;">
+        <h4>Categories: </h4>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let category of categories">
+                <app-category [category]="category" [selectedCategory]="selectedCategory" (click)="onSelect(category.id)"></app-category>
+            </div>
+        </div>
+        <h4>Difficulty</h4>
+        <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedDifficulty"
+            (change)="onValChange(group.value)">
+            <mat-button-toggle *ngFor="let difficulty of difficulties" value="{{ difficulty }}">
+                {{ difficulty | titlecase }}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <button mat-fab id="start-button" aria-label="Start Quiz" (click)="startQuiz()">
+        <mat-icon>play_arrow</mat-icon>
+    </button>
+</div>

@@ -1,0 +1,21 @@
+<div>
+    <div style="text-align: center;">
+        <h1>Question {{ currentCount }} of {{ total }}</h1>
+        <h2 [innerHTML]="question.question"></h2>
+    </div>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="space-between">
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let choice of choices">
+        <mat-card style="margin: 8px;" class="default-card-back" [ngClass]="{'highlight' : selectedChoice===choice}"
+            (click)="selectChoice(choice)">
+            <mat-card-content>
+                <h3 [innerHTML]="choice"></h3>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div class="center" style="margin-top: 50px;">
+    <button mat-fab id="start-button" aria-label="Start Quiz" (click)="submitAnswer()">
+        <mat-icon>play_arrow</mat-icon>
+    </button>
+</div>
