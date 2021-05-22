@@ -36,6 +36,6 @@ export class CategoriesComponent implements OnInit {
   }
 
   startQuiz() {
-    this.quizService.startNewGame(this.selectedDifficulty, 3, this.selectedCategory);
+    this.quizService.startNewGame(this.selectedDifficulty, 15, this.selectedCategory);
   }
 }
