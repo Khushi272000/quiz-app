@@ -1,27 +1,55 @@
 # QuizApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+## Technologies Used
+- Node.js v16.0.0
+- NPM 7.10.0
+- Angular 12.0.0
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## APIs
+- [Open Trivia DB](https://opentdb.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Structure
+### Routes
+- **Category (*default*)** - Used to show categories of quiz. Select category, difficulty and start the quiz.
+![Category](screenshots/category.png?raw=true "Category")
+- **Question** - To show question, choices and select answer.
+![Question](screenshots/question.png?raw=true "Question")
+- **Result** - Result screen will show final result with percentage.
+![Result](screenshots/result.png?raw=true "Result")
 
-## Build
+### Components
+#### 1. Categories - Category list
+- Screen component for categories retrives list of categories.
+- Show list of categories and difficulty.
+- After click on start it will start quiz.
+#### 2. Category - Category
+- To show a category card reusable card.
+#### 3. Question - Handle Question
+- Question screen to show question and answer choices.
+- After select answer and submit it.
+#### 4. Result - Show result
+- Quiz end result show screen.
+- Will Show total correct and total questions with percentage.
+- There is button to start another quiz
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Service
+#### Quiz Service
+- To start a new game.
+- To get categories from API.
+- To get Questions from API with difficulty and category.
 
-## Running unit tests
+### Observable
+- Observable are used for every API calls
+  - [getCategories](src/app/service/quiz.service.ts#L35-40)
+  - [getQuestions](src/app/service/quiz.service.ts#L42-57)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Pipe
+- Categories page to show difficulty in titlecase [Link to line](src/app/components/categories/categories.component.html#L19)
+- Result to show percentage in two decimals [Link to line](src/app/components/result/result.component.html#L6)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Styling Library
+- [Angular Material](https://material.angular.io/)
